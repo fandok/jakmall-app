@@ -1,3 +1,7 @@
+# Jakmall App
+
+Halaman Payment Flow yang dibuat, menggunakan create-react-app kemudian ditambah dengan package styled-components dan react-hooks-form sebagai utama. Dengan react-hooks-form membantu untuk menyimpan state management dari form yang ada. Styled components membantu untuk styling halamannya.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
