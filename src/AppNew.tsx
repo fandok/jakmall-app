@@ -1,6 +1,7 @@
 import isEmpty from "lodash.isempty";
 import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
+import useLocalStorage from "use-local-storage";
 
 import imgRight from "./assets/arrow-right.png";
 import NavigationComponent from "./components/Navigation";
@@ -14,14 +15,21 @@ import { FormInterface } from "./types";
 
 const AppNew = () => {
   const [step, setStep] = useState(DELIVERY_PAGE);
-  const [_, setFormData] = useState({});
+  const [formData, setFormData] = useLocalStorage<FormInterface>("form-data", {
+    email: "",
+    dropshipper_name: "",
+    dropshipper_phone_number: "",
+    phone_number: "",
+    address: "",
+  });
+
   const {
     watch,
     register,
     handleSubmit,
     formState: { errors },
     setValue,
-  } = useForm<FormInterface>();
+  } = useForm<FormInterface>({ defaultValues: formData });
 
   const isDropshipper = watch("is_dropshipper") || false;
   const shipment = watch("shipment") || { name: "", price: 0 };

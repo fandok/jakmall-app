@@ -9,5 +9,5 @@ export interface FormInterface {
     name: string;
     price: number;
   };
-  payment: string;
+  payment?: string;
 }
